@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Componentes
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
 
@@ -27,7 +26,7 @@ function App() {
 				<Header />
 				<Main>
 					<Switch>
-						{routes.map(({ path, exact = "true", component }) => {
+						{routes.map(({ path, exact = true, component }) => {
 							return (
 								<Route key={path} path={path} exact={exact}>
 									{component}
@@ -36,7 +35,6 @@ function App() {
 						})}
 					</Switch>
 				</Main>
-				<Footer />
 			</Router>
 		</div>
 	);

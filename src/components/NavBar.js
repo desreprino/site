@@ -16,7 +16,7 @@ const NavBar = () => {
 					return (
 						<li key={text} className="navBar__listItem">
 							<NavLink
-								exact="true"
+								exact
 								to={path}
 								className="navBar__link"
 								activeClassName="navBar__link--active"
