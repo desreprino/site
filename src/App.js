@@ -27,7 +27,7 @@ function App() {
 				<Header />
 				<Main>
 					<Switch>
-						{routes.map(({ path, exact = true, component }) => {
+						{routes.map(({ path, exact = "true", component }) => {
 							return (
 								<Route key={path} path={path} exact={exact}>
 									{component}
