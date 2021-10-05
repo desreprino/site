@@ -1,12 +1,11 @@
-import NavBar from "../NavBar/NavBar";
-import Logo from "../Logo/Logo";
-
-import "./Header.sass";
+import NavBar from "./NavBar";
+import Logo from "./Logo";
 
 const Header = () => {
 	return (
 		<header className="header">
 			<Logo />
+			<h1>Holi</h1>
 			<NavBar />
 		</header>
 	);

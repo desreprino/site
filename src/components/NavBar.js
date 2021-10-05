@@ -1,7 +1,5 @@
 import { NavLink } from "react-router-dom";
 
-import "./NavBar.sass";
-
 const NavBar = () => {
 	const links = [
 		{ path: "/", text: "Home" },

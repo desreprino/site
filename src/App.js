@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Componentes
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Main from "./components/Main";
 
 // Pages
-import AboutUs from "./pages/AboutUs/AboutUs";
-import Contact from "./pages/Contact/Contact";
-import Home from "./pages/Home/Home";
-import Products from "./pages/Products/Products";
-import Store from "./pages/Store/Store";
+import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Store from "./pages/Store";
 
 function App() {
 	const routes = [
