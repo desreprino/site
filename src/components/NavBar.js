@@ -21,7 +21,7 @@ const NavBar = () => {
 								className="navBar__link"
 								activeClassName="navBar__link--active"
 							>
-								{text}
+								<span className="navBar__text">{text}</span>
 							</NavLink>
 						</li>
 					);

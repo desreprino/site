@@ -1,19 +1,22 @@
 .navBar
     align-items: center
     display: flex
+    flex-basis: 50vw
+    flex-grow: 999
     flex-wrap: nowrap
+    height: 4rem
 
     &__list
         display: flex
         flex-wrap: nowrap
-        gap: 1rem
+        gap: 2rem
         justify-content: right
-        min-width: 50rem
-        width: 70vw
+        padding: 0 1rem 0 0
+        width: 100%
 
         &Item
             min-width: 10rem
-            width: 10vw
+            width: 9vw
 
     &__link
         height: 100%
@@ -22,7 +25,6 @@
             @include typography(null, null, 1rem, $grey)
             display: block
             margin: .2rem 0
-            padding: 0 .4rem
             text-align: right
 
         &:visited
@@ -36,3 +38,6 @@
 
             &:visited
                 color: $white
+
+    &__text
+        padding: 0 .4rem
