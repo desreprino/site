@@ -1,0 +1,21 @@
+.navBar
+    align-items: center
+    display: flex
+    flex-wrap: nowrap
+
+    &__list
+        display: flex
+        flex-wrap: nowrap
+        justify-content: right
+        min-width: 50rem
+        width: 70vw
+
+        &Item
+            min-width: 13rem
+            width: 10vw
+
+    &__link
+        &:link
+            @include typography(null, bold, 1.2rem, $grey)
+            display: block
+            text-align: right

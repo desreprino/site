@@ -10,15 +10,15 @@ const NavBar = () => {
 	];
 
 	return (
-		<nav className="nav">
-			<ul className="nav__list">
+		<nav className="navBar">
+			<ul className="navBar__list">
 				{links.map(({ path, text }) => {
 					return (
-						<li key={text} className="nav__listItem">
+						<li key={text} className="navBar__listItem">
 							<NavLink
 								to={path}
-								className="nav__link"
-								activeClassName="nav__link--active"
+								className="navBar__link"
+								activeClassName="navBar__link--active"
 							>
 								{text}
 							</NavLink>
