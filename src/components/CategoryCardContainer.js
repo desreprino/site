@@ -5,7 +5,7 @@ const CategoryCardContainer = () => {
 	/* 	const [categories, setCategories] = useState([]); */
 
 	return (
-		<>
+		<div className="categoryCardContainer">
 			<CategoryCard
 				name="nombre"
 				image={
@@ -24,7 +24,7 @@ const CategoryCardContainer = () => {
 					"https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
 				}
 			/>
-		</>
+		</div>
 	);
 };
 

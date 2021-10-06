@@ -1,5 +1,5 @@
 const ProductItem = ({ name }) => {
-	return <li>{name}</li>;
+	return <li className="productItem">{name}</li>;
 };
 
 export default ProductItem;

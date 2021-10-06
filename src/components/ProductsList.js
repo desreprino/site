@@ -1,7 +1,7 @@
 import ProductItem from "./ProductItem";
 const ProductsList = () => {
 	return (
-		<ul>
+		<ul className="productList">
 			<ProductItem name="Item" />
 			<ProductItem name="Item" />
 			<ProductItem name="Item" />

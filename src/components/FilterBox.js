@@ -10,13 +10,25 @@ const FilterBox = () => {
 			<h2 className="filterBox__title">Filtros</h2>
 			<div className="filterBox__selectContainer">
 				<select className="filterBox__select">
-					<option value="">Tipo de producto</option>
+					<option className="filterBox__option" value="">
+						Tipo de producto
+					</option>
 				</select>
 				<select className="filterBox__select">
-					<option value="">Auto (marca)</option>
+					<option className="filterBox__option" value="">
+						Auto (marca)
+					</option>
 				</select>
 				<select className="filterBox__select">
-					<option value="">Motor</option>
+					<option className="filterBox__option" value="">
+						Motor
+					</option>
+					<option className="filterBox__option" value="">
+						Motor
+					</option>
+					<option className="filterBox__option" value="">
+						Motor
+					</option>
 				</select>
 			</div>
 			<div className="filterBox__inputContainer">

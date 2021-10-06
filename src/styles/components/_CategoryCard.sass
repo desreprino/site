@@ -1,0 +1,19 @@
+.categoryCard
+    align-items: center
+    display: flex
+    flex-flow: column nowrap
+    height: 100%
+    justify-content: space-evenly
+    background: transparent linear-gradient(356deg, $midGrey 0%, $black 100%)
+    border: 1px solid $borderGrey
+    border-radius: 22px
+    width: 30%
+    min-width: 10vw
+
+    &__image
+        height: 55%
+        object-fit: cover
+
+    &__name
+        @include typography(Roboto, bold, 1.2rem, $white, 1px)
+        text-transform: uppercase
