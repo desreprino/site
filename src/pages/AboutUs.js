@@ -13,7 +13,7 @@ const AboutUs = () => {
 				<div className="aboutUs__textContainer">
 					<img className="aboutUs__legend" src={legend} alt="Rino Repuestos" />
 					<div>
-						<h1 className="aboutUs__title">RINO REPUESTOS SRL</h1>
+						<strong className="aboutUs__title">RINO REPUESTOS SRL</strong>
 						<p className="aboutUs__paragraph aboutUs__paragraph--first">
 							es una empresa joven dedicada a la importación, exportación,
 							fabricación y distribución de partes y repuestos de motor de todos
