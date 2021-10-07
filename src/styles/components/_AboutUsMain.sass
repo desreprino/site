@@ -1,0 +1,43 @@
+.aboutUsMain
+    display: flex
+    flex-wrap: nowrap
+    gap: 3%
+    max-height: 40vh
+    &__image
+        min-width: 48.5%
+        object-fit: cover
+        flex-grow: 1
+    &__textContainer
+        align-items: center
+        display: flex
+        flex-flow: column nowrap
+        justify-content: space-evenly
+        gap: .7em
+        min-width: 48.5%
+        min-height: 100%
+        flex-grow: 2
+    &__legend
+        object-fit: cover
+        max-height: 6rem
+    &__title
+        display: inline
+        margin-right: .5em
+        font-size: 1em
+    &__paragraph
+        @include typography(null, null, 1rem, null, null ,1.3rem)
+        &--first
+            display: inline
+        &--home
+            text-overflow: ellipsis
+
+    &__link
+        @include typography(Roboto, bold, 1rem, $grey)
+        margin-left: .5em
+        white-space: nowrap
+        text-align: right
+        width: 100%
+        &:link
+            color: $grey
+
+        &:visited
+            color: $grey
