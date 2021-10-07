@@ -13,7 +13,7 @@ const CategoryCardContainer = () => {
 		const getCategories = async (query) => {
 			try {
 				const data = await sanityClient.fetch(query);
-				console.log(data);
+
 				const categories = await data?.map((category) => {
 					return {
 						name: category.nombre,
@@ -33,10 +33,11 @@ const CategoryCardContainer = () => {
 	}, []);
 	return (
 		<div className="categoryCardContainer">
-			{recommendedCategories.map((category) => {
+			{recommendedCategories.map((category, index) => {
 				return (
 					<CategoryCard
-						key={category.slug}
+						key={index}
+						slug={category.slug}
 						name={category.name}
 						image={category.image}
 					/>

@@ -14,7 +14,7 @@ const BrandsContainer = () => {
 		const getBrands = async (query) => {
 			try {
 				const data = await sanityClient.fetch(query);
-				console.log(data);
+
 				const brands = await data?.map((brand) => {
 					return {
 						name: brand.nombre,
@@ -35,10 +35,11 @@ const BrandsContainer = () => {
 
 	return (
 		<div className="brandsContainer">
-			{recommendedBrands.map((brand) => {
+			{recommendedBrands.map((brand, index) => {
 				return (
 					<BrandCard
-						key={brand.slug}
+						key={index}
+						slug={brand.slug}
 						brandName={brand.name}
 						brandImageURL={brand.image}
 					/>

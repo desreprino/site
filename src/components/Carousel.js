@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
+import sanityClient from "../sanityClient";
+import { urlFor } from "../utils/images";
+
 import leftArrow from "../assets/icons/left_arrow.png";
 import rightArrow from "../assets/icons/right_arrow.png";
-
-import carouselData from "../assets/images/carousel/carouselData";
 
 const Carousel = () => {
 	const [slides, setSlides] = useState([]);
@@ -14,7 +15,28 @@ const Carousel = () => {
 	});
 
 	useEffect(() => {
-		setSlides(carouselData);
+		const query = '*[_type == "carousel"] | order(orden asc)';
+
+		const getSlides = async (query) => {
+			try {
+				const data = await sanityClient.fetch(query);
+
+				const gettedSlides = await data?.map((slide) => {
+					return {
+						name: slide.nombre,
+						slug: slide.slug?.current,
+						image: urlFor(slide.imagen).url(),
+					};
+				});
+				console.log(gettedSlides);
+				setSlides(gettedSlides);
+			} catch (error) {
+				setSlides([]);
+				console.log(error);
+			}
+		};
+
+		getSlides(query);
 	}, []);
 
 	useEffect(() => {
@@ -37,10 +59,10 @@ const Carousel = () => {
 					/>
 				)}
 				<div className="carousel__slidesContainer" style={slidesContainerStyle}>
-					{slides.map((slide) => {
+					{slides.map((slide, index) => {
 						return (
 							<img
-								key={slide.name}
+								key={slide.slug ? slide.slug : index}
 								src={slide.image}
 								alt={slide.name}
 								className="carousel__image"
