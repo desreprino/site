@@ -8,28 +8,38 @@ import CategoryCard from "./CategoryCard";
 const CategoryCardContainer = () => {
 	const [recommendedCategories, setRecommendedCategories] = useState([]);
 	useEffect(() => {
-		const query = '*[_type == "categoria" && destacada === true]';
+		const query = '*[_type == "categoria" && destacada == true]';
 
-		const getBrands = async (query) => {
-			const data = await sanityClient.fetch(query);
-			const categories = await data?.map((brand) => {
-				return {
-					title: brand.title,
-					slug: brand.slug,
-					image: urlFor(brand.image).url(),
-				};
-			});
+		const getCategories = async (query) => {
+			try {
+				const data = await sanityClient.fetch(query);
+				console.log(data);
+				const categories = await data?.map((category) => {
+					return {
+						name: category.nombre,
+						slug: category.slug,
+						image: urlFor(category.imagen).url(),
+					};
+				});
 
-			setRecommendedCategories(categories);
+				setRecommendedCategories(categories);
+			} catch (error) {
+				setRecommendedCategories([]);
+				console.log(error);
+			}
 		};
 
-		getBrands(query);
+		getCategories(query);
 	}, []);
 	return (
 		<div className="categoryCardContainer">
-			{recommendedCategories.map((categoria) => {
+			{recommendedCategories.map((category) => {
 				return (
-					<CategoryCard name={categoria.nombre} image={categoria.imagen} />
+					<CategoryCard
+						key={category.slug}
+						name={category.name}
+						image={category.image}
+					/>
 				);
 			})}
 		</div>

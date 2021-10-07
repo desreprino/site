@@ -9,19 +9,25 @@ const BrandsContainer = () => {
 	const [recommendedBrands, setRecommendedBrands] = useState([]);
 
 	useEffect(() => {
-		const query = '*[_type == "marca" && destacada === true]';
+		const query = '*[_type == "marca" && destacada == true]';
 
 		const getBrands = async (query) => {
-			const data = await sanityClient.fetch(query);
-			const brands = await data?.map((brand) => {
-				return {
-					title: brand.title,
-					slug: brand.slug,
-					image: urlFor(brand.image).url(),
-				};
-			});
+			try {
+				const data = await sanityClient.fetch(query);
+				console.log(data);
+				const brands = await data?.map((brand) => {
+					return {
+						name: brand.nombre,
+						slug: brand.slug,
+						image: urlFor(brand.imagen).url(),
+					};
+				});
 
-			setRecommendedBrands(brands);
+				setRecommendedBrands(brands);
+			} catch (error) {
+				setRecommendedBrands([]);
+				console.log(error);
+			}
 		};
 
 		getBrands(query);
@@ -31,7 +37,11 @@ const BrandsContainer = () => {
 		<div className="brandsContainer">
 			{recommendedBrands.map((brand) => {
 				return (
-					<BrandCard brandName={brand.nombre} brandImageURL={brand.imagen} />
+					<BrandCard
+						key={brand.slug}
+						brandName={brand.name}
+						brandImageURL={brand.image}
+					/>
 				);
 			})}
 		</div>

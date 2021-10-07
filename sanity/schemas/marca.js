@@ -18,6 +18,11 @@ export default {
 			},
 		},
 		{
+			name: "imagen",
+			title: "Imagen",
+			type: "image",
+		},
+		{
 			name: "destacada",
 			title: "Destacada",
 			type: "boolean",

@@ -5,10 +5,17 @@
     gap: 1rem
     width: 10rem
 
-    &__image
+    &__imageContainer
         border-radius: 50%
+        display: flex
+        justify-content: center
+        align-items: center
+        overflow: hidden
         height: 7rem
-        object-fit: contain
         width: 7rem
+
+    &__image
+        object-fit: cover
+        max-height: 100%
     &__name
         text-align: center
