@@ -13,7 +13,7 @@ const BrandsContainer = () => {
 
 		const getBrands = async (query) => {
 			const data = await sanityClient.fetch(query);
-			const brands = await data.map((brand) => {
+			const brands = await data?.map((brand) => {
 				return {
 					title: brand.title,
 					slug: brand.slug,
