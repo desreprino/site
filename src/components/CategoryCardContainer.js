@@ -1,29 +1,48 @@
-/* import { useState } from "react"; */
+import { useState, useEffect } from "react";
+
+import sanityClient from "../sanityClient";
+import { urlFor } from "../utils/images";
+
 import CategoryCard from "./CategoryCard";
 
 const CategoryCardContainer = () => {
-	/* 	const [categories, setCategories] = useState([]); */
+	const [recommendedCategories, setRecommendedCategories] = useState([]);
+	useEffect(() => {
+		const query = '*[_type == "categoria" && destacada == true]';
 
+		const getCategories = async (query) => {
+			try {
+				const data = await sanityClient.fetch(query);
+
+				const categories = await data?.map((category) => {
+					return {
+						name: category.nombre,
+						slug: category.slug,
+						image: urlFor(category.imagen).url(),
+					};
+				});
+
+				setRecommendedCategories(categories);
+			} catch (error) {
+				setRecommendedCategories([]);
+				console.log(error);
+			}
+		};
+
+		getCategories(query);
+	}, []);
 	return (
 		<div className="categoryCardContainer">
-			<CategoryCard
-				name="nombre"
-				image={
-					"https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
-				}
-			/>
-			<CategoryCard
-				name="nombre"
-				image={
-					"https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
-				}
-			/>
-			<CategoryCard
-				name="nombre"
-				image={
-					"https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
-				}
-			/>
+			{recommendedCategories.map((category, index) => {
+				return (
+					<CategoryCard
+						key={index}
+						slug={category.slug}
+						name={category.name}
+						image={category.image}
+					/>
+				);
+			})}
 		</div>
 	);
 };
