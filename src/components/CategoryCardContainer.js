@@ -21,7 +21,6 @@ const CategoryCardContainer = () => {
 						image: urlFor(category.imagen).url(),
 					};
 				});
-
 				setRecommendedCategories(categories);
 			} catch (error) {
 				setRecommendedCategories([]);
@@ -34,13 +33,8 @@ const CategoryCardContainer = () => {
 	return (
 		<div className="categoryCardContainer">
 			{recommendedCategories.map((category, index) => {
-				return (
-					<CategoryCard
-						key={index}
-						slug={category.slug}
-						name={category.name}
-						image={category.image}
-					/>
+				return (					
+					<CategoryCard slug={category.slug} key={index} name={category.name} image={category.image}/>
 				);
 			})}
 		</div>
