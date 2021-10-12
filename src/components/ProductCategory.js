@@ -13,7 +13,6 @@ const ProductCategory = () => {
                 <div className='category__name'>
                     <h1 className='category__name__title'> {category.toUpperCase()} </h1>
                 </div>
-                
 				<BrandsContainer />
 				<div className="category__filterbox filterBox__inputContainer">
                     <input type="text" className="filterBox__inputText" />
