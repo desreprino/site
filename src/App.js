@@ -15,7 +15,7 @@ function App() {
 	const routes = [
 		{ path: "/", component: <Home /> },
 		{ path: "/productos", component: <Products /> },
-		{ path: "/productos/categorias/:category", component: <ProductCategory /> },
+		{ path: "/productos/categorias/:category", component: <ProductCategory />, exact: false},
 		{ path: "/nosotros", component: <AboutUs /> },
 		{ path: "/contacto", component: <Contact /> },
 	];
