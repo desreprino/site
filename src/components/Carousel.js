@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import sanityClient from "../sanityClient";
+import sanityClient from "../utils/sanityClient";
 import { urlFor } from "../utils/images";
 
 import leftArrow from "../assets/icons/left_arrow.png";
@@ -28,7 +28,6 @@ const Carousel = () => {
 						image: urlFor(slide.imagen).url(),
 					};
 				});
-				console.log(gettedSlides);
 				setSlides(gettedSlides);
 			} catch (error) {
 				setSlides([]);

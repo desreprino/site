@@ -1,8 +1,9 @@
-const FilterSelect = ({ name, state, stateSetter, list }) => {
+const FilterSelect = ({ name, state, stateSetter, list, inactive }) => {
 	return (
 		<select
 			className="filterBox__select"
 			value={state}
+			disabled={inactive && inactive !== "false" ? true : false}
 			onChange={(event) => {
 				stateSetter(event.target.value);
 			}}
