@@ -13,7 +13,7 @@ export default {
 			title: "Slug",
 			type: "slug",
 			options: {
-				source: "title",
+				source: "nombre",
 				maxLength: 96,
 			},
 		},
@@ -39,6 +39,11 @@ export default {
 			title: "Motor",
 			type: "reference",
 			to: { type: "motor" },
+		},
+		{
+			name: "link",
+			title: "Link",
+			type: "url",
 		},
 	],
 };

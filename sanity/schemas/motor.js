@@ -13,7 +13,7 @@ export default {
 			title: "Slug",
 			type: "slug",
 			options: {
-				source: "title",
+				source: "nombre",
 				maxLength: 96,
 			},
 		},
