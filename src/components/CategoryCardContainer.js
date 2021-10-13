@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import sanityClient from "../sanityClient";
+import sanityClient from "../utils/sanityClient";
 import { urlFor } from "../utils/images";
 
-import CategoryCard from "./CategoryCard";
+import Card from "./Card";
 
 const CategoryCardContainer = () => {
 	const [recommendedCategories, setRecommendedCategories] = useState([]);
 	useEffect(() => {
-		const query = '*[_type == "categoria" && destacada == true]';
+		const query = '*[_type == "categoria" && destacada == true][0...3]';
 
 		const getCategories = async (query) => {
 			try {
@@ -17,7 +18,7 @@ const CategoryCardContainer = () => {
 				const categories = await data?.map((category) => {
 					return {
 						name: category.nombre,
-						slug: category.slug,
+						slug: category.slug.current,
 						image: urlFor(category.imagen).url(),
 					};
 				});
@@ -33,8 +34,14 @@ const CategoryCardContainer = () => {
 	return (
 		<div className="categoryCardContainer">
 			{recommendedCategories.map((category, index) => {
-				return (					
-					<CategoryCard slug={category.slug} key={index} name={category.name} image={category.image}/>
+				return (
+					<Link
+						key={index}
+						className="categoryCardContainer__link"
+						to={`/productos/categorias/${category.slug}`}
+					>
+						<Card name={category.name} image={category.image} />
+					</Link>
 				);
 			})}
 		</div>

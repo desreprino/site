@@ -13,6 +13,7 @@ export const ProductContextProvider = ({ children }) => {
 	const [categoryOptionState, setCategoryOptionState] = useState("");
 	const [brandOptionState, setBrandOptionState] = useState("");
 	const [engineOptionState, setEngineOptionState] = useState("");
+	const [searchValueState, setSearchValueState] = useState("");
 
 	return (
 		<ProductContext.Provider
@@ -29,6 +30,8 @@ export const ProductContextProvider = ({ children }) => {
 				setBrandOptionState,
 				engineOptionState,
 				setEngineOptionState,
+				searchValueState,
+				setSearchValueState,
 			}}
 		>
 			{children}

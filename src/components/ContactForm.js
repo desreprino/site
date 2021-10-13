@@ -1,6 +1,21 @@
+import sendEMail from "../utils/mailer";
+
 const ContactForm = () => {
+	const submitFormHandler = (event) => {
+		event.preventDefault();
+		try {
+			sendEMail({
+				to: "amandreacchi@gmail.com",
+				subject: "Hola",
+				text: "text",
+			});
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
+
 	return (
-		<form className="contactForm">
+		<form className="contactForm" onSubmit={submitFormHandler}>
 			<div className="contactForm__inputContainer">
 				<label htmlFor="name" className="contactForm__label">
 					Nombre

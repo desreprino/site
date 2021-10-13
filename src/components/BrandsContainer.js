@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import sanityClient from "../sanityClient";
+import sanityClient from "../utils/sanityClient";
 import { urlFor } from "../utils/images.js";
 
 import BrandCard from "./BrandCard";

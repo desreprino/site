@@ -1,4 +1,4 @@
-.categoryCard
+.card
     align-items: center
     display: flex
     flex-flow: column nowrap
@@ -7,8 +7,7 @@
     background: transparent linear-gradient(356deg, $midGrey 0%, $black 100%)
     border: 1px solid $borderGrey
     border-radius: 22px
-    width: 30%
-    min-width: 10vw
+    width: 100%
 
     &__imageContainer
         display: flex
@@ -26,3 +25,5 @@
     &__name
         @include typography(Roboto, normal, 1.2rem, $white, 1px)
         text-transform: uppercase
+        max-width: 80%
+        text-align: center

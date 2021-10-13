@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 
-import sanityClient from "../sanityClient";
+import sanityClient from "../utils/sanityClient";
 
 import FilterSelect from "./FilterSelect";
+import FilterSearchFragment from "./FilterSearchFragment";
 
 import { useProductContext } from "../contexts/ProductContext";
 
@@ -20,6 +21,7 @@ const FilterBox = () => {
 		setBrandOptionState,
 		engineOptionState,
 		setEngineOptionState,
+		setSearchValueState,
 	} = useProductContext();
 
 	useEffect(() => {
@@ -110,12 +112,10 @@ const FilterBox = () => {
 					state={engineOptionState}
 					stateSetter={setEngineOptionState}
 					list={engines}
+					inactive={engines?.length > 0 ? "false" : "true"}
 				/>
 			</div>
-			<div className="filterBox__inputContainer">
-				<input type="text" className="filterBox__inputText" />
-				<button className="filterBox__searchButton">Buscar</button>
-			</div>
+			<FilterSearchFragment stateSetter={setSearchValueState} />
 		</div>
 	);
 };
